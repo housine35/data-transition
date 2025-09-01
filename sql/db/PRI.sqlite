@@ -1,0 +1,50 @@
+/*
+DROP TABLE IF EXISTS recette;
+
+// craeate table with increment 
+CREATE TABLE recette (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  title VARCHAR(150),
+  content TEXT,
+  slug VARCHAR(50),
+  duration SMALLINT,
+  online BOOLEAN,
+  created_at DATETIME
+);
+
+
+-- populate recette avec recette algerienne
+INSERT INTO recette (title, content, slug, duration, online, created_at) VALUES
+('Couscous',      'Traditional Algerian dish made from steamed semolina.',                    'couscous',       30, TRUE, '2023-01-01 12:00:00'),
+('Chakhchoukha',  'A dish made with torn pieces of flatbread and a spicy sauce.',            'chakhchoukha',   45, TRUE, '2023-01-02 12:00:00'),
+('Tajine Zitoun', 'Chicken or lamb stew with olives and preserved lemons.',                  'tajine-zitoun',  60, TRUE, '2023-01-03 12:00:00'),
+('Mhadjeb',       'Semolina flatbread stuffed with tomatoes, onions, and spices.',           'mhadjeb',        20, TRUE, '2023-01-04 12:00:00'),
+('Rechta',        'Homemade pasta served with a chicken and chickpea sauce.',                'rechta',         50, TRUE, '2023-01-05 12:00:00');
+
+-- delete line du table
+DELETE FROM recette WHERE id = 1;
+
+
+--create INDEX
+CREATE INDEX idx_slug ON recette (title);
+SELECT * FROM recette;
+
+--EXPLAIN QUERY PLAN
+EXPLAIN QUERY PLAN SELECT * FROM recette WHERE title = 'Couscous';
+
+--DROP INDEX
+DROP INDEX idx_slug ON recette;
+
+
+CREATE TABLE recette (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  title VARCHAR(150) NOT NULL ,
+  content TEXT ,
+  slug VARCHAR(50),
+  duration SMALLINT,
+  online BOOLEAN,
+  created_at DATETIME
+);
+*/
+
+SELECT * FROM recette WHERE slug IS NULL;
